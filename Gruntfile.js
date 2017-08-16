@@ -3,66 +3,59 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-
+    // compile sass files
     sass: {                              // Task
       dist: {                            // Target
         options: {                       // Target options
-          style: 'compressed'
+          style: 'compressed',
+          noCache: true,
+          update: false,
         },
         files: {
           'style.css': 'sass/style.scss',
         },
-        // [{
-        //   expand: true,
-        //   cwd: 'styles',
-        //   src: ['*.scss'],
-        //   dest: '../css/style.css',
-        //   ext: '.css'
-        // }]
       }
     },
 
-
+    // uglify our jS files
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
         src: ['js/source/*.js'],
-        dest: 'build/<%= pkg.name %>.min.js'
+        dest: 'js/<%= pkg.name %>.min.js'
       }
     },
 
+    // watch all files for changes and perform tasks accordingly
     watch: {
       options: {
         livereload: true,
+        // debug: true,
       },
       livereload: {
-        // reload page when css, js, images or php files changed
-        files: ['img/**/*.{png,jpg,jpeg,gif,webp,svg}', '**/*.php']
+        // reload page when images or php files change
+        files: ['img/**/*.{png,jpg,jpeg,gif,webp,svg}', '**/*.php'],
       },
+      // watch for JS changes
       scripts: {
-        files: [ 'js/source/*.js' ],
-        task: ['uglify'],
-        options: {
-          reload: true
-        }
+        files: [ 'js/**/*.js' ],
+        tasks: ['uglify'],
       },
+      // watch for SASS changes
       styles: {
-        files: ['sass/*.scss'],
-        task: ['sass'],
-        options: {
-          reload: true
-        }
+        files: ['sass/**/*.scss'],
+        tasks: ['sass'],
       }
     }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
-
+  // Load the plugin that provides the "sass" task.
   grunt.loadNpmTasks('grunt-contrib-sass');
-
+  // Load the plugin that provides the "watch" task.
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
