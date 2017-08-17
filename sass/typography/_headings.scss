@@ -1,3 +1,37 @@
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 }
+
+h1, h2 {
+	@include FjallaOne;
+	font-size: 2em;
+	line-height: 1;
+	margin: 1em 0 .2em 0;
+	text-transform: uppercase;
+}
+
+h3 {
+	font-family: $FjallaOne;
+	font-size: 1.6em;
+	line-height: 1.03;
+	letter-spacing: -2.9px;
+	text-transform: uppercase;
+	margin-top: 0;
+	margin-bottom: .2em;
+}
+
+h4 {
+	font-family: $FjallaOne;
+	font-size: 1.6em;
+	line-height: 1.4;
+	letter-spacing: -2.1px;
+}
+
+h5, h6 {
+	font-family: $Georgia;
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 1.42;
+	letter-spacing: -2.1px;
+	margin: 0.2em 0 0.2em 0;
+}

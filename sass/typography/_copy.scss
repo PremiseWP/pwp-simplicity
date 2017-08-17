@@ -1,6 +1,20 @@
 p {
-	margin-bottom: 1.5em;
+	font-family: $Georgia;
+	font-size: 1em;
+	line-height: 1.45;
+	margin: 0.2em 0 1em 0;
 }
+
+p.medium {
+	@include ga-text-md;
+}
+p.small {
+	@include ga-text-sm;
+}
+p.x-small {
+	@include ga-text-xs;
+}
+
 
 dfn, cite, em, i {
 	font-style: italic;

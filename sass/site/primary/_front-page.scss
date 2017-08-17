@@ -1,3 +1,152 @@
+.pwp-simplicity-hero {
+	padding: 45% 10%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	&-text {
+		color: $white;
+	}
+}
+
+.rugged-bar {
+	display: block;
+	margin: .4em auto;
+	height: .45em;
+	background-size: .4em auto;
+	background-position: center;
+	background-repeat: repeat-x;
+
+	&-white {
+		background-image: url(./img/rugged-bar-white.png);
+	}
+	&-green {
+		background-image: url(./img/rugged-bar-green.png);
+	}
+}
+
+section {
+	padding: 12% 10%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .front-page {
 
+	.section-harnessing-power {
+		color: $white;
+		text-align: center;
+	}
+
+	.section-explore-expressions {
+		color: $pine;
+
+		&-header {
+			text-align: center;
+		}
+
+		&-bottle {
+			margin-top: 3em;
+			margin-bottom: 2em;
+
+			&-text {
+				h3 {
+					margin-bottom: 0;
+					color: $pine;
+				}
+				p {
+					margin-top: .3em;
+					color: $pine;
+				}
+			}
+			img {
+				max-width: 70px;
+				display: block;
+				margin: 0 auto;
+			}
+		}
+
+		&-tasting-notes {
+			margin-top: 4em;
+
+			&-header {}
+		}
+	}
+
+	.section-select {
+		margin-top: 0.5em;
+		color: $pine;
+
+		&-bottle {
+			&-text {
+				text-align: right;
+			}
+		}
+
+		&-tasting-notes {
+			margin-top: 4em;
+
+			&-header {}
+		}
+	}
+
+	.section-making-laphroaig {
+		background-color: $pine;
+		color: $white;
+
+		&-ingredients {
+			margin-top: 4em;
+
+			&-icon {
+				padding: 0 1.5em;
+			}
+
+			&-bottle {
+				padding: 0 5em;
+			}
+		}
+	}
+
+	.section-flavors-laphroaig {
+		// padding-left: 0;
+		// padding-right: 0;
+
+		&-cocktail {
+			display: block;
+			margin-left: -13%;
+			margin-right: -13%;
+			padding: 12% 10% 0;
+			text-align: center;
+			color: $white;
+			background-image: url(./img/kiss-of-islay.png);
+			background-size: cover;
+			background-position: bottom left;
+			background-repeat: no-repeat;
+
+			h2 {
+				margin-top: 0;
+			}
+			h3 {
+				margin-bottom: 0;
+			}
+
+			&-header {
+				padding: 0 10%;
+			}
+
+			&-content {
+				padding: 0 10% 12%;
+			}
+
+			&-directions {
+				background-color: $pine;
+				text-align: center;
+				padding: .8em;
+				display: block;
+				margin-left: -10%;
+				margin-right: -10%;
+			}
+		}
+	}
 }

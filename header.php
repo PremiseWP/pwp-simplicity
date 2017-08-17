@@ -26,24 +26,15 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
+			<a href="<?php echo site_url(); ?>" class="logo-link">
+				<img src="<?php echo esc_url( get_template_directory_uri().'/img/logo.png' ); ?>" class="logo">
+			</a>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'pwp-simplicity' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<img src="<?php echo esc_url( get_template_directory_uri().'/img/nav-toggle.png' ); ?>" class="nav-toggle">
+			</button>
 			<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
@@ -52,5 +43,14 @@
 			?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+
+	<?php if ( is_front_page() ) : ?>
+		<div class="pwp-simplicity-hero" style="background-image: url(<?php echo esc_url( get_template_directory_uri().'/img/hero.png' ); ?>);">
+			<div class="pwp-simplicity-hero-text">
+				<img src="<?php echo esc_url( get_template_directory_uri().'/img/behind-the-bar-with-laphroaig.png' ); ?>">
+				<p>Crafting drinks with the most richly flavoured of all Scotch whiskies.</p>
+			</div>
+		</div>
+	<?php endif; ?>
 
 	<div id="content" class="site-content">

@@ -3,3 +3,45 @@ $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
+
+// our fonts
+$Georgia: 'Georgia', $font__main;
+$FjallaOne: 'FjallaOne', $font__main;
+// use as mixins
+@mixin Georgia {
+	font-family: $Georgia;
+}
+@mixin FjallaOne {
+	font-family: $FjallaOne;
+}
+
+/* Text styles */
+@mixin text-style {
+	font-family: FjallaOne;
+	font-size: 120px;
+	line-height: 1.04;
+	text-align: center;
+}
+
+@mixin ga-text-md {
+	font-family: $Georgia;
+	font-size: .8em;
+}
+
+@mixin ga-text-sm {
+	font-family: $Georgia;
+	font-size: .6em;
+	line-height: 1.39;
+}
+
+@mixin ga-text-xs {
+	font-family: $Georgia;
+	font-size: .5em;
+	line-height: 1.27;
+}
+
+@mixin li {
+	font-family: $Georgia;
+	font-size: 1.12em;
+	line-height: 1.77;
+}

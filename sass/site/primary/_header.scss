@@ -1,0 +1,10 @@
+.site-header {
+	background-color: $pine;
+	box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.34);
+
+	.site-branding {
+		display: block;
+		max-width: 150px;
+		margin: .8em auto;
+	}
+}
