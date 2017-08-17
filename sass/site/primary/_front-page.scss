@@ -26,10 +26,16 @@
 }
 
 section {
-	padding: 12% 10%;
+	padding: 12% 1.35em;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	box-sizing: border-box;
+
+	&.full-width {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 .front-page {
@@ -111,12 +117,14 @@ section {
 	.section-flavors-laphroaig {
 		// padding-left: 0;
 		// padding-right: 0;
+		//
+		&-header {
+			padding: 0 10%;
+		}
 
 		&-cocktail {
 			display: block;
-			margin-left: -13%;
-			margin-right: -13%;
-			padding: 12% 10% 0;
+			padding-bottom: 0;
 			text-align: center;
 			color: $white;
 			background-image: url(./img/kiss-of-islay.png);
@@ -144,9 +152,54 @@ section {
 				text-align: center;
 				padding: .8em;
 				display: block;
-				margin-left: -10%;
-				margin-right: -10%;
 			}
+		}
+
+		&-food {
+			padding: 5% 0;
+			display: block;
+			text-align: center;
+			color: $white;
+			background-image: url(./img/Oysters.png);
+			background-size: cover;
+			background-position: bottom left;
+			background-repeat: no-repeat;
+
+			h2 {
+				margin-top: 0;
+			}
+			h3 {
+				margin-bottom: 0;
+			}
+
+			&-header {
+				padding: 0 10%;
+			}
+
+			&-name {
+				padding-top: 54.6%;
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+
+	.section-more-cocktails {
+		background-color: $pine;
+		color: $white;
+		text-align: center;
+
+		h3 {
+			margin-bottom: .4em;
+			font-size: 1.43em;
+		}
+		h2 {
+			margin-top: 0;
+			font-size: 1.63em;
+		}
+
+		&-header {
+			margin-bottom: 2em;
 		}
 	}
 }

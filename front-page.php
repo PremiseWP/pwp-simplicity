@@ -190,7 +190,7 @@ get_header(); ?>
 			</div>
 		</section>
 
-		<section class="section-flavors-laphroaig">
+		<section class="section-flavors-laphroaig full-width">
 
 			<div class="section-flavors-laphroaig-header pwp-align-center">
 				<h2>the flavours of laphroaig<sup>®</sup></h2>
@@ -227,7 +227,27 @@ get_header(); ?>
 					<p class="small">Stir. Serve on the rocks.</p>
 				</div>
 			</div>
+
+			<div class="section-flavors-laphroaig-food">
+				<div class="section-flavors-laphroaig-food-header">
+					<h2>fare to match</h2>
+					<div class="rugged-bar rugged-bar-white"></div>
+				</div>
+				<div class="section-flavors-laphroaig-food-name">
+					<h5>Oysters</h5>
+				</div>
+			</div>
+
 		</section>
+
+		<section class="section-more-cocktails">
+			<div class="section-more-cocktails-header">
+				<h3>experience more</h3>
+				<h2>laphroaig<sup>®</sup> cocktails</h2>
+				<div class="rugged-bar rugged-bar-white"></div>
+			</div>
+		</section>
+
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
