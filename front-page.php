@@ -201,7 +201,24 @@ get_header(); ?>
 			</div>
 
 
-			[wheel]
+			<div class="section-flavors-laphroaig-wheel-cont">
+				<div class="pwp-inline">
+					<div class="span6 pwp-vertical-align-middle section-flavors-laphroaig-wheel">
+						<img src="<?php echo esc_url( get_template_directory_uri().'/img/wheel.png' ); ?>">
+					</div>
+					<div class="span6 pwp-vertical-align-middle section-flavors-laphroaig-wheel-info">
+						<h3>SMOKE<br>
+						<span>Pairs well with</span></h3>
+						<ul>
+							<li>HOPS</li>
+							<li>TEA</li>
+							<li>TAMARIND</li>
+							<li>BACON</li>
+							<li>CHILE</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 
 			<div class="section-flavors-laphroaig-cocktail">
 				<div class="section-flavors-laphroaig-cocktail-header">
