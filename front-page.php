@@ -17,7 +17,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="front-page site-main">
 
-		<section class="section-harnessing-power" style="background-image: url(<?php echo esc_url( get_template_directory_uri().'/img/harnessigng-power-bg.png' ); ?>);">
+		<section id="Harnessing-Power-Peat" class="section-harnessing-power" style="background-image: url(<?php echo esc_url( get_template_directory_uri().'/img/harnessigng-power-bg.png' ); ?>);">
 
 			<h2 class="color-white">harnessing the power of peat</h2>
 			<div class="rugged-bar rugged-bar-white"></div>
@@ -26,7 +26,7 @@ get_header(); ?>
  			<p>When seeking smoke and bolder flavours, Laphroaig® 10 Year Old and Select offer two unique ways way to impart these traits. Come explore their diverse palates and start crafting cocktails as unique as the Scotch itself.</p>
 		</section>
 
-		<section class="section-explore-expressions" style="background-image: url(<?php echo esc_url( get_template_directory_uri().'/img/barley-bg.png' ); ?>);">
+		<section id="Explore-Expressions" class="section-explore-expressions" style="background-image: url(<?php echo esc_url( get_template_directory_uri().'/img/barley-bg.png' ); ?>);">
 
 			<div class="section-explore-expressions-header">
 				<h2 class="color-white">explore the expressions</h2>
@@ -75,7 +75,7 @@ get_header(); ?>
 			</div>
 		</section>
 
-		<section class="section-select" style="background-image: url(<?php echo esc_url( get_template_directory_uri().'/img/barley-bg.png' ); ?>);">
+		<section id="Making-Laphroaig" class="section-select" style="background-image: url(<?php echo esc_url( get_template_directory_uri().'/img/barley-bg.png' ); ?>);">
 
 			<div class="pwp-inline not-responsive flush-columns section-select-bottle">
 				<div class="col2 pwp-vertical-align-middle section-select-bottle-text">
@@ -118,7 +118,7 @@ get_header(); ?>
 			</div>
 		</section>
 
-		<section class="section-making-laphroaig" style="background-image: url(<?php echo esc_url( get_template_directory_uri().'/img/harnessigng-power-bg.png' ); ?>);">
+		<section id="Flavours-Laphroaig" class="section-making-laphroaig" style="background-image: url(<?php echo esc_url( get_template_directory_uri().'/img/harnessigng-power-bg.png' ); ?>);">
 
 			<div class="section-making-laphroaig-header pwp-align-center">
 				<h2>the making of laphroaig<sup>®</sup></h2>
@@ -190,7 +190,7 @@ get_header(); ?>
 			</div>
 		</section>
 
-		<section class="section-flavors-laphroaig full-width">
+		<section id="Inspirational-Laphroaig-Cocktails" class="section-flavors-laphroaig full-width">
 
 			<div class="section-flavors-laphroaig-header pwp-align-center">
 				<h2>the flavours of laphroaig<sup>®</sup></h2>

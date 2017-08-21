@@ -4,7 +4,7 @@
 
 		// reference variables for efficiency
 		var navToggle = $('.menu-toggle');
-		var mainNav   = $('#primary-menu > ul');
+		var mainNav   = $('#primary-menu');
 
 		// bind the nav toggle
 		navToggle.click(function(e){
