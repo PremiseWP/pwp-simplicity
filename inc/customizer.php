@@ -35,12 +35,12 @@ class PWP_Simplicity_Customizer {
 			// 'transport'      => 'postMessage',
 			'type'              => 'theme_mod',
 		),
-		'nav-btn-background-color' => array(
-			'default'           => 'transparent',
-			'sanitize_callback' => 'sanitize_hex_color',
-			// 'transport'      => 'postMessage',
-			'type'              => 'theme_mod',
-		),
+		// 'nav-btn-background-color' => array(
+		// 	'default'           => 'transparent',
+		// 	'sanitize_callback' => 'sanitize_hex_color',
+		// 	// 'transport'      => 'postMessage',
+		// 	'type'              => 'theme_mod',
+		// ),
 		'nav-btn-color' => array(
 			'default'           => '#FFFFFF',
 			'sanitize_callback' => 'sanitize_hex_color',
@@ -95,54 +95,57 @@ class PWP_Simplicity_Customizer {
 
 	public function header_customizer() {
 		// 1. register the settings
-		$this->customizer->add_setting( self::$mod_name.'[header][background-color]', array(
-		  'default' => '#206Fbb',
-		  'sanitize_callback' => 'sanitize_hex_color',
-		  'transport' => 'postMessage',
-		  'type' => 'theme_mod',
-		) );
-		$this->customizer->add_setting( self::$mod_name.'[header][color]', array(
-		  'default' => '#FFFFFF',
-		  'sanitize_callback' => 'sanitize_hex_color',
-		  // 'transport' => 'postMessage',
-		  'type' => 'theme_mod',
-		) );
-		$this->customizer->add_setting( self::$mod_name.'[header][nav-btn-background-color]', array(
-		  'default' => 'transparent',
-		  'sanitize_callback' => 'sanitize_hex_color',
-		  // 'transport' => 'postMessage',
-		  'type' => 'theme_mod',
-		) );
-		$this->customizer->add_setting( self::$mod_name.'[header][nav-btn-color]', array(
-		  'default' => '#FFFFFF',
-		  'sanitize_callback' => 'sanitize_hex_color',
-		  // 'transport' => 'postMessage',
-		  'type' => 'theme_mod',
-		) );
-		$this->customizer->add_setting( self::$mod_name.'[header][background-opacity]', array(
-		  'default' => '1',
-		  'sanitize_callback' => array( $this, 'floatvalue' ),
-		  'transport' => 'postMessage',
-		  'type' => 'theme_mod',
-		) );
-		$this->customizer->add_setting( self::$mod_name.'[header][width]', array(
-		  'default' => '100%',
-		  'sanitize_callback' => 'esc_attr',
-		  // 'transport' => 'postMessage',
-		  'type' => 'theme_mod',
-		) );
-		$this->customizer->add_setting( self::$mod_name.'[header][max-width]', array(
-		  'default' => '100%',
-		  'sanitize_callback' => 'esc_attr',
-		  // 'transport' => 'postMessage',
-		  'type' => 'theme_mod',
-		) );
-		$this->customizer->add_setting( self::$mod_name.'[header][padding]', array(
-		  'default' => '0.3em 1em 0.3em 1em',
-		  'sanitize_callback' => 'esc_attr',
-		  // 'transport' => 'postMessage',
-		  'type' => 'theme_mod',
-		) );
+		foreach ($this->header_settings as $setting => $args ) {
+			$this->customizer->add_setting( self::$mod_name."[header][{$setting}]", $args );
+		}
+		// $this->customizer->add_setting( self::$mod_name.'[header][background-color]', array(
+		//   'default' => '#206Fbb',
+		//   'sanitize_callback' => 'sanitize_hex_color',
+		//   'transport' => 'postMessage',
+		//   'type' => 'theme_mod',
+		// ) );
+		// $this->customizer->add_setting( self::$mod_name.'[header][color]', array(
+		//   'default' => '#FFFFFF',
+		//   'sanitize_callback' => 'sanitize_hex_color',
+		//   // 'transport' => 'postMessage',
+		//   'type' => 'theme_mod',
+		// ) );
+		// $this->customizer->add_setting( self::$mod_name.'[header][nav-btn-background-color]', array(
+		//   'default' => 'transparent',
+		//   'sanitize_callback' => 'sanitize_hex_color',
+		//   // 'transport' => 'postMessage',
+		//   'type' => 'theme_mod',
+		// ) );
+		// $this->customizer->add_setting( self::$mod_name.'[header][nav-btn-color]', array(
+		//   'default' => '#FFFFFF',
+		//   'sanitize_callback' => 'sanitize_hex_color',
+		//   // 'transport' => 'postMessage',
+		//   'type' => 'theme_mod',
+		// ) );
+		// $this->customizer->add_setting( self::$mod_name.'[header][background-opacity]', array(
+		//   'default' => '1',
+		//   'sanitize_callback' => array( $this, 'floatvalue' ),
+		//   'transport' => 'postMessage',
+		//   'type' => 'theme_mod',
+		// ) );
+		// $this->customizer->add_setting( self::$mod_name.'[header][width]', array(
+		//   'default' => '100%',
+		//   'sanitize_callback' => 'esc_attr',
+		//   // 'transport' => 'postMessage',
+		//   'type' => 'theme_mod',
+		// ) );
+		// $this->customizer->add_setting( self::$mod_name.'[header][max-width]', array(
+		//   'default' => '100%',
+		//   'sanitize_callback' => 'esc_attr',
+		//   // 'transport' => 'postMessage',
+		//   'type' => 'theme_mod',
+		// ) );
+		// $this->customizer->add_setting( self::$mod_name.'[header][padding]', array(
+		//   'default' => '0.3em 1em 0.3em 1em',
+		//   'sanitize_callback' => 'esc_attr',
+		//   // 'transport' => 'postMessage',
+		//   'type' => 'theme_mod',
+		// ) );
 
 		// 2. register the section
 		$this->customizer->add_section( 'pwp_simplicity_customizer_header', array(
