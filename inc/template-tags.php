@@ -7,6 +7,42 @@
  * @package PWP_Simplicity
  */
 
+if ( ! function_exists( 'pwp_simplicity_site_branding' ) ) :
+	/**
+	 * display the site branding, logo or site title
+	 *
+	 * @return string the html for the site's branding
+	 */
+	function pwp_simplicity_site_branding() {
+		$__is_home = ( is_front_page() && is_home() ) ? true : false;
+
+		if ( has_custom_logo() ) the_custom_logo();
+
+		if ( $__is_home ) : ?>
+			<h1 class="site-title">
+		<?php else : ?>
+			<p class="site-title">
+		<?php
+		endif; ?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<?php bloginfo( 'name' ); ?>
+				</a>
+		<?php
+		if ( $__is_home ) : ?>
+			</h1>
+		<?php else : ?>
+			</p>
+		<?php
+		endif;
+
+		$description = get_bloginfo( 'description', 'display' );
+		if ( $description || is_customize_preview() ) : ?>
+			<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+		<?php
+		endif;
+	}
+endif;
+
 if ( ! function_exists( 'pwp_simplicity_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
@@ -127,8 +163,8 @@ if ( ! function_exists( 'pwp_simplicity_header_overlay' ) ) :
 			: '#206Fbb';
 
 		$opacity = ( isset( $theme_mod['header'] )
-			&& isset( $theme_mod['header']['background-opacity'] ) )
-			? (float) $theme_mod['header']['background-opacity']
+			&& isset( $theme_mod['header']['opacity'] ) )
+			? (float) $theme_mod['header']['opacity']
 			: '1';
 
 		echo '<div class="site-header-overlay" style="background-color:'.$background_color.'; opacity:'.$opacity.';"></div>';

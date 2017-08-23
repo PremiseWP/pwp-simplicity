@@ -14,6 +14,14 @@
 				: nav.removeClass('toggled');
 			return false;
 		});
+
+		//
+		//
+		// set the right number of widget columns
+		var headerWidgetsArea = $('.pwp-simplicity-header-widgets'),
+		headerWidgets = headerWidgetsArea.children();
+		headerWidgets.addClass( 'span' + Math.floor(12 / headerWidgets.length) );
+		headerWidgetsArea.show();
 	});
 
 	$(window).load(function(){

@@ -30,3 +30,25 @@ function pwp_simplicity_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'pwp_simplicity_pingback_header' );
+
+/**
+ * Set class to the header widget based on the number of widgets
+ *
+ * @param  array $params params for the sidebar
+ * @return array         the params altered with the right classes for each widget
+ */
+function pwp_simplicity_count_header_widgets( $params ) {
+
+  $sidebar_id = $params[0]['id'];
+
+  if ( $sidebar_id == 'pwp-simplicity-header-widgets' ) {
+
+      $total_widgets = wp_get_sidebars_widgets();
+      $sidebar_widgets = count( $total_widgets[$sidebar_id] );
+
+      $params[0]['before_widget'] = str_replace('class="', 'class="span' . floor(12 / $sidebar_widgets) . ' ', $params[0]['before_widget']);
+  }
+
+  return $params;
+}
+// add_filter('dynamic_sidebar_params','pwp_simplicity_count_header_widgets');
