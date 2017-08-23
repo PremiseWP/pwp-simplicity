@@ -2,7 +2,18 @@
 	$(document).ready(function(){
 		var _doc = $(this); // jQuery object for document
 
-		// more code here
+		//
+		//
+		// navigation
+		var nav = $('#site-navigation'),
+		button  = $('.menu-toggle');
+		button.click(function(e){
+			e.preventDefault();
+			!nav.is('.toggled')
+				? nav.addClass('toggled')
+				: nav.removeClass('toggled');
+			return false;
+		});
 	});
 
 	$(window).load(function(){

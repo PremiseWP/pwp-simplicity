@@ -100,3 +100,50 @@ if ( ! function_exists( 'pwp_simplicity_entry_footer' ) ) :
 		);
 	}
 endif;
+
+if ( ! function_exists( 'pwp_simplicity_theme_mod' ) ) :
+	/**
+	 * get the thememod for out theme
+	 *
+	 * @return array theme mod or empty array
+	 */
+	function pwp_simplicity_theme_mod() {
+		return get_theme_mod( PWP_Simplicity_Customizer::$mod_name, array() );
+	}
+endif;
+
+if ( ! function_exists( 'pwp_simplicity_header_overlay' ) ) :
+	/**
+	 * echo the overlay for the header. Used by the customizer and the header to sho the overlay and update on live preview.
+	 *
+	 * @return string the html for the header background.
+	 */
+	function pwp_simplicity_header_overlay() {
+		$theme_mod = pwp_simplicity_theme_mod();
+
+		$background_color = ( isset( $theme_mod['header'] )
+			&& isset( $theme_mod['header']['background-color'] ) )
+			? esc_attr( $theme_mod['header']['background-color'] )
+			: '#206Fbb';
+
+		$opacity = ( isset( $theme_mod['header'] )
+			&& isset( $theme_mod['header']['background-opacity'] ) )
+			? (float) $theme_mod['header']['background-opacity']
+			: '1';
+
+		echo '<div class="site-header-overlay" style="background-color:'.$background_color.'; opacity:'.$opacity.';"></div>';
+	}
+endif;
+
+if ( ! function_exists( 'pwp_simplicity_floaval' ) ) :
+	/**
+	 * return a float values
+	 *
+	 * @param  string $value          value to be sanitized
+	 * @param  object $setting_object the setting object
+	 * @return string                 sanitized value
+	 */
+	function pwp_simplicity_floaval( $value, $setting_object ) {
+		return floatval( $value );
+	}
+endif;

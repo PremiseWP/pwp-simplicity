@@ -18,11 +18,31 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+
+	<?php
+	$theme_mods = pwp_simplicity_theme_mod();
+
+	$_header = isset( $theme_mods['header'] ) ? $theme_mods['header'] : array();
+// var_dump($_header);
+	 ?>
+
+	<style type="text/css">
+		.site-header {
+			width:            <?php echo isset( $_header['width']  )                    ? esc_attr( $_header['width'] )                  : '100%'; ?>;
+			max-width:        <?php echo isset( $_header['max-width'] )                 ? esc_attr( $_header['max-width'] )              : '100%'; ?>;
+			padding:          <?php echo isset( $_header['padding'] )                   ? esc_attr( $_header['padding'] )                : '0.3em 1em 0.3em 1em'; ?>;
+			color:            <?php echo isset( $_header['color'] )                     ? esc_attr( $_header['color'] )                  : '#FFFFFF'; ?>;
+		}
+		.menu-toggle {
+			background-color: <?php echo isset( $_header['nav-btn-background-color']  ) ? esc_attr( $_header['nav-btn-background-color'] )                  : 'transparent'; ?>;
+			color:            <?php echo isset( $_header['nav-btn-color'] )             ? esc_attr( $_header['nav-btn-color'] ) : '#FFFFFF'; ?>;
+		}
+	</style>
 </head>
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'pwp-simplicity' ); ?></a>
+	<!-- <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'pwp-simplicity' ); ?></a> -->
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
@@ -42,8 +62,11 @@
 			endif; ?>
 		</div><!-- .site-branding -->
 
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+			<i class="fa fa-bars"></i>
+		</button>
+
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'pwp-simplicity' ); ?></button>
 			<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
@@ -51,6 +74,7 @@
 				) );
 			?>
 		</nav><!-- #site-navigation -->
+		<?php pwp_simplicity_header_overlay(); ?>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

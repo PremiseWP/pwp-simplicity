@@ -40,7 +40,7 @@ module.exports = function(grunt) {
       },
       // watch for JS changes
       scripts: {
-        files: [ 'js/**/*.js' ],
+        files: [ 'js/source/*.js' ],
         tasks: ['uglify'],
       },
       // watch for SASS changes
