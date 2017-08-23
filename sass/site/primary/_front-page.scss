@@ -6,6 +6,10 @@
 
 	&-text {
 		color: $white;
+		text-align: center;
+		img {
+			display: inline-block;
+		}
 	}
 }
 

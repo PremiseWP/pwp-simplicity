@@ -27,7 +27,7 @@
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<a href="<?php echo site_url(); ?>" class="logo-link">
-				<img src="<?php echo esc_url( get_template_directory_uri().'/img/logo.png' ); ?>" class="logo">
+				<img src="<?php echo esc_url( get_template_directory_uri().'/img/Logo.png' ); ?>" class="logo">
 			</a>
 		</div><!-- .site-branding -->
 
