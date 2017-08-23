@@ -22,6 +22,57 @@ class PWP_Simplicity_Customizer {
 
 	public static $mod_name = 'pwp_simplicity_theme_mod';
 
+	public $header_settings = array(
+		'background-color' => array(
+			'default'           => '#206Fbb',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'postMessage',
+			'type'              => 'theme_mod',
+		),
+		'color' => array(
+			'default'           => '#FFFFFF',
+			'sanitize_callback' => 'sanitize_hex_color',
+			// 'transport'      => 'postMessage',
+			'type'              => 'theme_mod',
+		),
+		'nav-btn-background-color' => array(
+			'default'           => 'transparent',
+			'sanitize_callback' => 'sanitize_hex_color',
+			// 'transport'      => 'postMessage',
+			'type'              => 'theme_mod',
+		),
+		'nav-btn-color' => array(
+			'default'           => '#FFFFFF',
+			'sanitize_callback' => 'sanitize_hex_color',
+			// 'transport'      => 'postMessage',
+			'type'              => 'theme_mod',
+		),
+		'background-opacity' => array(
+			'default'           => '1',
+			'sanitize_callback' => 'pwp_simplicity_floaval',
+			'transport'         => 'postMessage',
+			'type'              => 'theme_mod',
+		),
+		'width'     => array(
+			'default'           => '100%',
+			'sanitize_callback' => 'esc_attr',
+			// 'transport'      => 'postMessage',
+			'type'              => 'theme_mod',
+		),
+		'max-width' => array(
+			'default'           => '100%',
+			'sanitize_callback' => 'esc_attr',
+			// 'transport'      => 'postMessage',
+			'type'              => 'theme_mod',
+		),
+		'padding' => array(
+			'default'           => '0.3em 1em 0.3em 1em',
+			'sanitize_callback' => 'esc_attr',
+			// 'transport'      => 'postMessage',
+			'type'              => 'theme_mod',
+		),
+	);
+
 	public static function get_inst() {
 		if ( NULL === self::$inst ) {
 			self::$inst = new self;
@@ -171,10 +222,6 @@ class PWP_Simplicity_Customizer {
 			self::$mod_name.'[header][background-opacity]',
 			$partial_args
 		);
-	}
-
-	public function floatvalue( $value, $setting_object ) {
-		return floatval( $value );
 	}
 
 
