@@ -7,9 +7,12 @@
 	&-text {
 		color: $white;
 		text-align: center;
+<<<<<<< HEAD
 		img {
 			display: inline-block;
 		}
+=======
+>>>>>>> origin/laphroaig
 	}
 }
 
@@ -124,6 +127,25 @@ section {
 		//
 		&-header {
 			padding: 0 10%;
+		}
+
+		&-wheel-cont {
+			color: $pine;
+
+			h3 > span {
+				font-size: 60%;
+				letter-spacing: normal;
+			}
+		}
+
+		&-wheel {
+			padding: 0 0 0 1em;
+			box-sizing: border-box;
+		}
+
+		&-wheel-info {
+			padding: 0 1em;
+			box-sizing: border-box;
 		}
 
 		&-cocktail {
