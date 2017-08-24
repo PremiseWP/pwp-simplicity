@@ -15,6 +15,10 @@ $_nav     = isset( $theme_mods['nav'] )     ? $theme_mods['nav']     : array();
 // get the settings for the body section
 $_body    = isset( $theme_mods['body'] )    ? $theme_mods['body']    : array();
 $_content = isset( $theme_mods['content'] ) ? $theme_mods['content'] : array();
+// get the buttons styles
+$_button_primary   = isset( $theme_mods['button-primary'] )   ? $theme_mods['button-primary']   : array();
+$_button_secondary = isset( $theme_mods['button-secondary'] ) ? $theme_mods['button-secondary'] : array();
+$_button_warning   = isset( $theme_mods['button-warning'] )   ? $theme_mods['button-warning']   : array();
 
 /**
  * loop through the options set for a tag and output the css
@@ -59,4 +63,7 @@ function pwp_print_custom_typography( $theme_mods ) {
 /* Main content styles */
 .site{<?php pwp_print_custom_styles_for( $_body ); ?>}
 .site-content{<?php pwp_print_custom_styles_for( $_content ); ?>}
+.pwp-simplicity-btn-primary,.pwp-simplicity-btn-primary:hover{<?php pwp_print_custom_styles_for( $_button_primary ); ?>}
+.pwp-simplicity-btn-secondary,.pwp-simplicity-btn-secondary:hover{<?php pwp_print_custom_styles_for( $_button_secondary ); ?>}
+.pwp-simplicity-btn-warning,.pwp-simplicity-btn-warning:hover{<?php pwp_print_custom_styles_for( $_button_warning ); ?>}
 </style>

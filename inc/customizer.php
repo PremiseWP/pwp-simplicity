@@ -93,6 +93,8 @@ class PWP_Simplicity_Customizer {
 
 		$this->body_section();
 
+		$this->buttons_section();
+
 		$this->typography();
 	}
 
@@ -377,22 +379,198 @@ class PWP_Simplicity_Customizer {
 	}
 
 	/**
+	 * display the buttons section
+	 *
+	 * @return void does not return anything
+	 */
+	protected function buttons_section() {
+		$this->customizer->add_section( 'pwp_simplicity_customizer_buttons', array(
+		  'title'          => __( 'Simplicity Buttons' ),
+		  'description'    => __( 'Control the styles for the primary and secondary buttons here.' ),
+		  'priority'       => 23,
+		  'capability'     => 'edit_theme_options',
+		  'panel'          => '', // Not typically needed.
+		  'theme_supports' => '', // Rarely needed.
+		) );
+
+		// the buttons settings
+		$this->_add_settings( array(
+			'button-primary' => array(
+				'background-color'     => array(
+					'default'           => '#206fbb',
+					'sanitize_callback' => 'sanitize_hex_color',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+				'color'     => array(
+					'default'           => '#fefefe',
+					'sanitize_callback' => 'sanitize_hex_color',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+				'font-size'     => array(
+					'default'           => '1em',
+					'sanitize_callback' => 'esc_attr',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+				'padding' => array(
+					'default'           => '1em 1.8em',
+					'sanitize_callback' => 'esc_attr',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+			),
+			'button-secondary' => array(
+				'background-color'     => array(
+					'default'           => '#fc3a00',
+					'sanitize_callback' => 'sanitize_hex_color',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+				'color'     => array(
+					'default'           => '#f4f4f4',
+					'sanitize_callback' => 'sanitize_hex_color',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+				'font-size'     => array(
+					'default'           => '1em',
+					'sanitize_callback' => 'esc_attr',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+				'padding' => array(
+					'default'           => '1em 1.8em',
+					'sanitize_callback' => 'esc_attr',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+			),
+			'button-warning' => array(
+				'background-color'     => array(
+					'default'           => '#ff5300',
+					'sanitize_callback' => 'sanitize_hex_color',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+				'color'     => array(
+					'default'           => '#fefefe',
+					'sanitize_callback' => 'sanitize_hex_color',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+				'font-size'     => array(
+					'default'           => '1em',
+					'sanitize_callback' => 'esc_attr',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+				'padding' => array(
+					'default'           => '1em 1.8em',
+					'sanitize_callback' => 'esc_attr',
+					// 'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+			),
+		) );
+
+		$this->_add_controls( array(
+			'button-primary' => array(
+				'background-color' => array(
+					'type'        => 'color',
+					'label'       => __( 'Primary Button Background Color', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+				),
+				'color' => array(
+					'type'        => 'color',
+					'label'       => __( 'Primary Button Text Color', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+				),
+				'font-size' => array(
+					'type'        => 'text',
+					'label'       => __( 'Primary Button Font Size', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+					'input_attrs' => array(
+						'placeholder' => 'use px, em, etc..',
+					),
+				),
+				'padding' => array(
+					'type'        => 'text',
+					'label'       => __( 'Primary Button Padding', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+					'input_attrs' => array(
+						'placeholder' => 'use px, em, %, etc..',
+					),
+				),
+			),
+			'button-secondary' => array(
+				'background-color' => array(
+					'type'        => 'color',
+					'label'       => __( 'Secondary Button Background Color', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+				),
+				'color' => array(
+					'type'        => 'color',
+					'label'       => __( 'Secondary Button Text Color', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+				),
+				'font-size' => array(
+					'type'        => 'text',
+					'label'       => __( 'Secondary Button Font Size', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+					'input_attrs' => array(
+						'placeholder' => 'use px, em, etc..',
+					),
+				),
+				'padding' => array(
+					'type'        => 'text',
+					'label'       => __( 'Secondary Button Padding', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+					'input_attrs' => array(
+						'placeholder' => 'use px, em, %, etc..',
+					),
+				),
+			),
+			'button-warning' => array(
+				'background-color' => array(
+					'type'        => 'color',
+					'label'       => __( 'Warning Button Background Color', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+				),
+				'color' => array(
+					'type'        => 'color',
+					'label'       => __( 'Warning Button Text Color', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+				),
+				'font-size' => array(
+					'type'        => 'text',
+					'label'       => __( 'Warning Button Font Size', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+					'input_attrs' => array(
+						'placeholder' => 'use px, em, etc..',
+					),
+				),
+				'padding' => array(
+					'type'        => 'text',
+					'label'       => __( 'Warning Button Padding', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_buttons',
+					'input_attrs' => array(
+						'placeholder' => 'use px, em, %, etc..',
+					),
+				),
+			),
+		) );
+	}
+
+	/**
 	 * display the colors section
 	 *
 	 * @return void does not return anything
 	 */
 	protected function typography() {
-		// $this->customizer->add_section( 'pwp_simplicity_customizer_colors', array(
-		//   'title'          => __( 'Simplicity colors' ),
-		//   'description'    => __( 'Control the colors settings here.' ),
-		//   'priority'       => 11,
-		//   'capability'     => 'edit_theme_options',
-		//   'panel'          => '', // Not typically needed.
-		//   'theme_supports' => '', // Rarely needed.
-		// ) );
 
-		// the colors settings
-		$typo_settings = array(
+		$this->_add_settings( array(
 			'h1' => array(
 				'color'     => array(
 					'default'           => '#222222',
@@ -465,10 +643,10 @@ class PWP_Simplicity_Customizer {
 					'type'              => 'theme_mod',
 				),
 			),
-		);
-		$this->_add_settings( $typo_settings );
+		) );
 
-		$typo_controls = array(
+
+		$this->_add_controls( array(
 			'h1' => array(
 				'color' => array(
 					'type'        => 'color',
@@ -541,9 +719,7 @@ class PWP_Simplicity_Customizer {
 					'section'     => 'colors',
 				),
 			),
-		);
-		// add the controls
-		$this->_add_controls( $typo_controls );
+		) );
 	}
 
 	/*
