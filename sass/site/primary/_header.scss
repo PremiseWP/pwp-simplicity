@@ -17,7 +17,7 @@
 		z-index: -1;
 	}
 
-	p, h1 {
+	p, h1, h2, h3, h4, h5, h6 {
 		margin-top: 0;
 		margin-bottom: 0.3em;
 		color: inherit;
@@ -27,11 +27,21 @@
 		color: inherit;
 	}
 
-	.pwp-simplicity-header-widgets {
-		clear: both;
-		overflow: hidden;
-		display: none;
+}
+
+.pwp-simplicity-header-widgets {
+	clear: both;
+	overflow: hidden;
+	display: none;
+
+	.widget {
+		margin-bottom: 0;
+		min-height: 1px;
 	}
+
+	@include header-nav-widget;
+
+	@include header-search-widget;
 }
 
 .site-branding {

@@ -16,6 +16,11 @@ $_nav     = isset( $theme_mods['nav'] )     ? $theme_mods['nav']     : array();
 $_body    = isset( $theme_mods['body'] )    ? $theme_mods['body']    : array();
 $_content = isset( $theme_mods['content'] ) ? $theme_mods['content'] : array();
 
+// Unset background-color and opacity because they user partials
+// @see https://developer.wordpress.org/themes/customize-api/tools-for-improved-user-experience/#registering-partials
+unset($_header['background-color']);
+unset($_header['opacity']);
+
 /**
  * loop through the options set for a tag and output the css
  *

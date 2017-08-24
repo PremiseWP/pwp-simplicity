@@ -114,7 +114,7 @@ function pwp_simplicity_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Header', 'pwp-simplicity' ),
 		'id'            => 'pwp-simplicity-header-widgets',
-		'description'   => esc_html__( 'Add widgets to pwp simplicity header.', 'pwp-simplicity' ),
+		'description'   => esc_html__( 'Add widgets to pwp simplicity header. If you are adding widgets from the customizer screen you will notice they get out of place and all funky when you make changes. Do not worry, when you refresh the page they will go back to normal.<br>Widgets in the header are divided into equal columns based on the number of widgets you add. There is a maximum of 12 widgets.', 'pwp-simplicity' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
