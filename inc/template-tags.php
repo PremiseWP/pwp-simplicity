@@ -156,7 +156,7 @@ if ( ! function_exists( 'pwp_simplicity_header_overlay' ) ) :
 	 */
 	function pwp_simplicity_header_overlay() {
 		$theme_mod = pwp_simplicity_theme_mod();
-
+// var_dump($theme_mod);
 		$background_color = ( isset( $theme_mod['header'] )
 			&& isset( $theme_mod['header']['background-color'] ) )
 			? esc_attr( $theme_mod['header']['background-color'] )

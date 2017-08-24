@@ -1,0 +1,44 @@
+@mixin header-nav-widget {
+	.widget_nav_menu {
+		ul {
+			display: block;
+			margin-left: 0;
+			margin-bottom: 0;
+			padding-left: 0;
+			list-style: none;
+
+			ul {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: 10em;
+
+				li {
+					display: block;
+				}
+			}
+
+			li:hover {
+				position: relative;
+				ul {
+					display: block;
+				}
+			}
+		}
+
+		li {
+			display: inline-block;
+			color: inherit;
+			margin-right: 0.4em;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		a {
+			color: inherit;
+		}
+	}
+}

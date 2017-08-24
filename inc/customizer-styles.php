@@ -20,6 +20,11 @@ $_button_primary   = isset( $theme_mods['button-primary'] )   ? $theme_mods['but
 $_button_secondary = isset( $theme_mods['button-secondary'] ) ? $theme_mods['button-secondary'] : array();
 $_button_warning   = isset( $theme_mods['button-warning'] )   ? $theme_mods['button-warning']   : array();
 
+// Unset background-color and opacity because they user partials
+// @see https://developer.wordpress.org/themes/customize-api/tools-for-improved-user-experience/#registering-partials
+unset($_header['background-color']);
+unset($_header['opacity']);
+
 /**
  * loop through the options set for a tag and output the css
  *

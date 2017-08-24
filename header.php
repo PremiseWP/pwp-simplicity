@@ -30,7 +30,7 @@
 		<div class="site-content">
 			<?php
 			if ( is_active_sidebar( 'pwp-simplicity-header-widgets' ) ) : ?>
-				<div class="pwp-simplicity-header-widgets pwp-clear-float pwp-row">
+				<div class="pwp-simplicity-header-widgets pwp-clear-float pwp-row" style="display: none;">
 					<?php dynamic_sidebar( 'pwp-simplicity-header-widgets' ); ?>
 				</div>
 			<?php
@@ -56,4 +56,4 @@
 		<?php pwp_simplicity_header_overlay(); ?>
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content<?php echo ( ! is_active_sidebar( 'sidebar-1' ) ) ? ' no-sidebar' : ' with-sidebar'; ?>">
