@@ -121,7 +121,7 @@ class PWP_Simplicity_Customizer {
 		$this->customizer->add_section( 'pwp_simplicity_customizer_header', array(
 		  'title'          => __( 'Simplicity Header' ),
 		  'description'    => __( 'Control the header settings here.' ),
-		  'priority'       => 21,
+		  'priority'       => 59,
 		  'capability'     => 'edit_theme_options',
 		  'panel'          => '', // Not typically needed.
 		  'theme_supports' => '', // Rarely needed.
@@ -165,6 +165,14 @@ class PWP_Simplicity_Customizer {
 					'default'           => '1',
 					'sanitize_callback' => 'pwp_simplicity_floaval',
 					'transport'         => 'postMessage',
+					'type'              => 'theme_mod',
+				),
+			),
+			'logo' => array(
+				'max-width' => array(
+					'default'           => '10em',
+					'sanitize_callback' => 'esc_attr',
+					// 'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 			),
@@ -226,6 +234,16 @@ class PWP_Simplicity_Customizer {
 					'section'     => 'pwp_simplicity_customizer_header',
 					'input_attrs' => array(
 						'placeholder' => '0.3em 1em 0.3em 1em',
+					),
+				),
+			),
+			'logo' => array(
+				'max-width' => array(
+					'type'        => 'text',
+					'label'       => __( 'Logo Max Width', 'theme_textdomain' ),
+					'section'     => 'pwp_simplicity_customizer_header',
+					'input_attrs' => array(
+						'placeholder' => 'use px, em, %, etc..',
 					),
 				),
 			),

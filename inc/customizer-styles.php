@@ -10,8 +10,9 @@
 // get the theme mods
 $theme_mods = pwp_simplicity_theme_mod();
 // get the settings for the header section
-$_header  = isset( $theme_mods['header'] )  ? $theme_mods['header']  : array();
-$_nav     = isset( $theme_mods['nav'] )     ? $theme_mods['nav']     : array();
+$_header = isset( $theme_mods['header'] )  ? $theme_mods['header']  : array();
+$_logo   = isset( $theme_mods['logo'] )  ? $theme_mods['logo']  : array();
+$_nav    = isset( $theme_mods['nav'] )     ? $theme_mods['nav']     : array();
 // get the settings for the body section
 $_body    = isset( $theme_mods['body'] )    ? $theme_mods['body']    : array();
 $_content = isset( $theme_mods['content'] ) ? $theme_mods['content'] : array();
@@ -64,6 +65,7 @@ function pwp_print_custom_typography( $theme_mods ) {
 <?php pwp_print_custom_typography( $theme_mods ); ?>
 /* Header styles */
 .site-header{<?php pwp_print_custom_styles_for( $_header ); ?>}
+.custom-logo-link{<?php pwp_print_custom_styles_for( $_logo ); ?>}
 .menu-toggle{<?php pwp_print_custom_styles_for( $_nav ); ?>}
 /* Main content styles */
 .site{<?php pwp_print_custom_styles_for( $_body ); ?>}
