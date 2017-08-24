@@ -7,6 +7,13 @@
  * @package PWP_Simplicity
  */
 
+/**
+ * Require Premise WP
+ *
+ * @see https://github.com/PremiseWP/Premise-WP for more information on how to use it.
+ */
+require get_template_directory() . '/inc/require-premise.php';
+
 if ( ! function_exists( 'pwp_simplicity_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
