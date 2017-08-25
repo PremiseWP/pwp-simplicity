@@ -121,7 +121,7 @@ class PWP_Simplicity_Customizer {
 		$this->customizer->add_section( 'pwp_simplicity_customizer_header', array(
 		  'title'          => __( 'Simplicity Header' ),
 		  'description'    => __( 'Control the header settings here.' ),
-		  'priority'       => 59,
+		  'priority'       => 21,
 		  'capability'     => 'edit_theme_options',
 		  'panel'          => '', // Not typically needed.
 		  'theme_supports' => '', // Rarely needed.
@@ -421,7 +421,7 @@ class PWP_Simplicity_Customizer {
 					'type'              => 'theme_mod',
 				),
 				'color'     => array(
-					'default'           => '#fefefe',
+					'default'           => '#f4f4f4',
 					'sanitize_callback' => 'sanitize_hex_color',
 					// 'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
@@ -441,7 +441,7 @@ class PWP_Simplicity_Customizer {
 			),
 			'button-secondary' => array(
 				'background-color'     => array(
-					'default'           => '#fc3a00',
+					'default'           => '#444444',
 					'sanitize_callback' => 'sanitize_hex_color',
 					// 'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
@@ -473,7 +473,7 @@ class PWP_Simplicity_Customizer {
 					'type'              => 'theme_mod',
 				),
 				'color'     => array(
-					'default'           => '#fefefe',
+					'default'           => '#f4f4f4',
 					'sanitize_callback' => 'sanitize_hex_color',
 					// 'transport'      => 'postMessage',
 					'type'              => 'theme_mod',

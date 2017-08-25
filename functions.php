@@ -127,6 +127,16 @@ function pwp_simplicity_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer', 'pwp-simplicity' ),
+		'id'            => 'pwp-simplicity-footer-widgets',
+		'description'   => esc_html__( 'Add widgets to pwp simplicity footer. If you are adding widgets from the customizer screen you will notice they get out of place and all funky when you make changes. Do not worry, when you refresh the page they will go back to normal.<br>Widgets in the footer are divided into equal columns based on the number of widgets you add. There is a maximum of 12 widgets.', 'pwp-simplicity' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'pwp_simplicity_widgets_init' );
 

@@ -20,6 +20,7 @@ input[type="submit"] {
 		border-color: $color__border-button-focus;
 	}
 }
+
 .pwp-simplicity-btn {
 	display: inline-block;
 	padding: 1em 1.8em;
@@ -34,5 +35,20 @@ input[type="submit"] {
 
 	&:hover {
 		box-shadow: 0.125em 0.125em 0.125em #333;
+	}
+
+	&-primary {
+		background-color: #206Fbb;
+		color: #f4f4f4;
+	}
+
+	&-secondary {
+		background-color: #444444;
+		color: #f4f4f4;
+	}
+
+	&-warning {
+		background-color: #ff5300;
+		color: #FFFFFF;
 	}
 }

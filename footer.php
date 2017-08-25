@@ -9,22 +9,28 @@
  * @package PWP_Simplicity
  */
 
+
+
 ?>
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'pwp-simplicity' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'pwp-simplicity' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
+	<div class="pwp-clear-float"></div>
+
+	<footer id="colophon" class="site-footer pwp-clear-float">
+		<div class="site-content">
 			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'pwp-simplicity' ), 'pwp-simplicity', '<a href="http://premisewp.com">Premise WP</a>' );
-			?>
-		</div><!-- .site-info -->
+			if ( is_active_sidebar( 'pwp-simplicity-footer-widgets' ) ) : ?>
+				<div class="pwp-simplicity-footer-widgets pwp-clear-float pwp-row" style="display: none;">
+					<?php dynamic_sidebar( 'pwp-simplicity-footer-widgets' ); ?>
+				</div>
+			<?php
+			endif; ?>
+
+			<div class="site-info pwp-clear-float pwp-align-center">
+				<p class="site-info-copyright">Copyright &copy; <?php echo date( 'Y' ); ?>. All Rights Reserved.</p>
+			</div><!-- .site-info -->
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

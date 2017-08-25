@@ -22,3 +22,9 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+
+@mixin background-cover {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}

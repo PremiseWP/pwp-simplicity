@@ -55,9 +55,7 @@
 		</div>
 		<?php pwp_simplicity_header_overlay(); ?>
 	</header><!-- #masthead -->
-	<?php if ( $pwps_header_image = get_custom_header()
-		&& ! empty( $pwps_header_image->url ) ) : ?>
-		<div class="pwps-header-image" style="background-image: url( <?php header_image(); ?> );"></div>
-	<?php endif; ?>
 
-	<div id="content" class="site-content<?php echo ( ! is_active_sidebar( 'sidebar-1' ) ) ? ' no-sidebar' : ' with-sidebar'; ?>">
+	<?php pwp_simplicity_header_image(); ?>
+
+	<div id="content" class="site-content<?php echo ( ( is_home() && ! is_front_page() ) && is_active_sidebar( 'sidebar-1' ) ) ? ' with-sidebar' : ' no-sidebar'; ?>">

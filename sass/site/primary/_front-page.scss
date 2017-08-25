@@ -1,3 +1,12 @@
-.front-page {
+body.home {
 
+	.pwps-header-image {
+		padding-top: 54.6%;
+
+		@include background-cover;
+
+		@media screen and ( min-width: $size__tablet ) {
+			padding-top: 33.33%;
+		}
+	}
 }

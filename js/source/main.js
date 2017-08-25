@@ -17,11 +17,19 @@
 
 		//
 		//
-		// set the right number of widget columns
+		// set the right number of widget columns for the header
 		var headerWidgetsArea = $('.pwp-simplicity-header-widgets'),
 		headerWidgets = headerWidgetsArea.children();
 		headerWidgets.addClass( 'span' + Math.floor(12 / headerWidgets.length) );
 		headerWidgetsArea.show();
+
+		//
+		//
+		// set the right number of widget columns for the footer
+		var footerWidgetsArea = $('.pwp-simplicity-footer-widgets'),
+		footerWidgets = footerWidgetsArea.children();
+		footerWidgets.addClass( 'span' + Math.floor(12 / footerWidgets.length) );
+		footerWidgetsArea.show();
 	});
 
 	$(window).load(function(){

@@ -183,3 +183,19 @@ if ( ! function_exists( 'pwp_simplicity_floaval' ) ) :
 		return floatval( $value );
 	}
 endif;
+
+if ( ! function_exists( 'pwp_simplicity_header_image' ) ) :
+	/**
+	 * output the header image on the home page
+	 *
+	 * @return string the html for the hero
+	 */
+	function pwp_simplicity_header_image() {
+		$pwps_header_image = get_custom_header();
+		if ( ( is_front_page() || is_home() )
+			&& ! empty( $pwps_header_image->url ) ) : ?>
+			<div class="pwps-header-image" style="background-image: url( <?php header_image(); ?> );"></div>
+		<?php
+		endif;
+	}
+endif;
