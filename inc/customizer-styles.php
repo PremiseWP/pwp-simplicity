@@ -56,10 +56,11 @@ function pwp_print_custom_typography( $theme_mods ) {
 			echo '}';
 		}
 	}
+	echo "\n";
 }
 ?>
 
-<style type="text/css">
+<style type="text/css" id="pwp_simplicity__customizer-style-tag">
 /* These style were generated from pwp simplicity theme and can be changed from the customizer */
 /* Typography colors */
 <?php pwp_print_custom_typography( $theme_mods ); ?>
@@ -70,7 +71,14 @@ function pwp_print_custom_typography( $theme_mods ) {
 /* Main content styles */
 .site{<?php pwp_print_custom_styles_for( $_body ); ?>}
 .site-content{<?php pwp_print_custom_styles_for( $_content ); ?>}
-.pwp-simplicity-btn-primary,.pwp-simplicity-btn-primary:hover{<?php pwp_print_custom_styles_for( $_button_primary ); ?>}
-.pwp-simplicity-btn-secondary,.pwp-simplicity-btn-secondary:hover{<?php pwp_print_custom_styles_for( $_button_secondary ); ?>}
+/* Buttons */
+button,
+input[type="button"],
+input[type="submit"],
+.pwp-simplicity-btn-primary,
+.pwp-simplicity-btn-primary:hover{<?php pwp_print_custom_styles_for( $_button_primary ); ?>}
+input[type="reset"],
+.pwp-simplicity-btn-secondary,
+.pwp-simplicity-btn-secondary:hover{<?php pwp_print_custom_styles_for( $_button_secondary ); ?>}
 .pwp-simplicity-btn-warning,.pwp-simplicity-btn-warning:hover{<?php pwp_print_custom_styles_for( $_button_warning ); ?>}
 </style>

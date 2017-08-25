@@ -28,3 +28,18 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 }
+
+// default buttons style
+@mixin button-styles {
+	display: inline-block;
+	margin-top: 1.5em;
+	padding: 1em 1.8em;
+	color: #f4f4f4;
+	@include font-size(1);
+	line-height: 1;
+	text-decoration: none;
+	text-shadow: 0px 0px 1px #aaa;
+	transition: all .4s 0s ease-in-out;
+	background-color: $color__background-button;
+	border: 0;
+}

@@ -88,6 +88,12 @@ class PWP_Simplicity_Customizer {
 		// this functin acts as our construct here
 		$this->customizer = $wp_customize;
 		$this->mods = get_theme_mod( self::$mod_name );
+		// set the partial args for all css changes
+		$this->style_tag_partial = array(
+			'selector' => '#pwp_simplicity__customizer-style-tag',
+			'render_callback' => array( $this, 'print_styles' ),
+			'container_inclusive' => false,
+		);
 		// register the header section
 		$this->header_section();
 
@@ -133,25 +139,25 @@ class PWP_Simplicity_Customizer {
 				'color' => array(
 					'default'           => '#FFFFFF',
 					'sanitize_callback' => 'sanitize_hex_color',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'width'     => array(
 					'default'           => '100%',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'max-width' => array(
 					'default'           => '100%',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'padding' => array(
 					'default'           => '0.3em 1em 0.3em 1em',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				// settings for the overlay
@@ -172,7 +178,7 @@ class PWP_Simplicity_Customizer {
 				'max-width' => array(
 					'default'           => '10em',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 			),
@@ -180,7 +186,7 @@ class PWP_Simplicity_Customizer {
 				'color' => array(
 					'default'           => '#FFFFFF',
 					'sanitize_callback' => 'sanitize_hex_color',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 			),
@@ -229,7 +235,6 @@ class PWP_Simplicity_Customizer {
 				),
 				'padding' => array(
 					'type'        => 'text',
-					'description' => 'Use padding to set the header content width.',
 					'label'       => __( 'Padding', 'theme_textdomain' ),
 					'section'     => 'pwp_simplicity_customizer_header',
 					'input_attrs' => array(
@@ -248,11 +253,6 @@ class PWP_Simplicity_Customizer {
 				),
 			),
 			'nav' => array(
-				// 'background-color' => array(
-				// 	'type'    => 'color',
-				//   'label'   => __( 'Nav Button Background', 'theme_textdomain' ),
-				//   'section' => 'pwp_simplicity_customizer_header',
-				// ),
 				'color' => array(
 					'type'    => 'color',
 				  'label'   => __( 'Nav Button Color', 'theme_textdomain' ),
@@ -264,15 +264,26 @@ class PWP_Simplicity_Customizer {
 		$this->_add_controls( $header_controls );
 
 		// 4. Optional. Register the partials
-		$partial_args = array(
-			'selector'        => '.site-header-overlay',
-			'render_callback' => 'pwp_simplicity_header_overlay',
+		$overlay_partial_args = array(
+			'selector'            => '.site-header-overlay',
+			'render_callback'     => 'pwp_simplicity_header_overlay',
 			'container_inclusive' => true,
 		);
 		$header_partials = array(
 			'header' => array(
-				'background-color' => $partial_args,
-				'opacity' => $partial_args,
+				'background-color' => $overlay_partial_args,
+				'opacity'          => $overlay_partial_args,
+				// the rest of the partials.
+				'color'     => $this->style_tag_partial,
+				'width'     => $this->style_tag_partial,
+				'max-width' => $this->style_tag_partial,
+				'padding'   => $this->style_tag_partial,
+			),
+			'logo' => array(
+				'max-width' => $this->style_tag_partial,
+			),
+			'nav' => array(
+				'color'     => $this->style_tag_partial,
 			),
 		);
 		$this->_add_partials( $header_partials );
@@ -299,19 +310,19 @@ class PWP_Simplicity_Customizer {
 				'width'     => array(
 					'default'           => '100%',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'max-width' => array(
 					'default'           => '100%',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'padding' => array(
 					'default'           => '0',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 			),
@@ -319,19 +330,19 @@ class PWP_Simplicity_Customizer {
 				'width'     => array(
 					'default'           => '100%',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'max-width' => array(
 					'default'           => '100%',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'padding' => array(
 					'default'           => '0 1em 0 1em',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 			),
@@ -368,7 +379,7 @@ class PWP_Simplicity_Customizer {
 			'content' => array(
 				'width' => array(
 					'type'        => 'text',
-					'label'       => __( 'Container Width', 'theme_textdomain' ),
+					'label'       => __( 'Content Width', 'theme_textdomain' ),
 					'section'     => 'pwp_simplicity_customizer_body',
 					'input_attrs' => array(
 						'placeholder' => 'use px, em, %, etc..',
@@ -376,7 +387,7 @@ class PWP_Simplicity_Customizer {
 				),
 				'max-width' => array(
 					'type'        => 'text',
-					'label'       => __( 'Container Max Width', 'theme_textdomain' ),
+					'label'       => __( 'Content Max Width', 'theme_textdomain' ),
 					'section'     => 'pwp_simplicity_customizer_body',
 					'input_attrs' => array(
 						'placeholder' => 'use px, em, %, etc..',
@@ -384,7 +395,7 @@ class PWP_Simplicity_Customizer {
 				),
 				'padding' => array(
 					'type'        => 'text',
-					'label'       => __( 'Container Padding', 'theme_textdomain' ),
+					'label'       => __( 'Content Padding', 'theme_textdomain' ),
 					'section'     => 'pwp_simplicity_customizer_body',
 					'input_attrs' => array(
 						'placeholder' => '0.3em 1em 0.3em 1em',
@@ -394,6 +405,20 @@ class PWP_Simplicity_Customizer {
 		);
 		// add the controls
 		$this->_add_controls( $body_controls );
+
+		$body_partials = array(
+			'body' => array(
+				'width'     => $this->style_tag_partial,
+				'max-width' => $this->style_tag_partial,
+				'padding'   => $this->style_tag_partial,
+			),
+			'content' => array(
+				'width'     => $this->style_tag_partial,
+				'max-width' => $this->style_tag_partial,
+				'padding'   => $this->style_tag_partial,
+			),
+		);
+		$this->_add_partials( $body_partials );
 	}
 
 	/**
@@ -417,25 +442,25 @@ class PWP_Simplicity_Customizer {
 				'background-color'     => array(
 					'default'           => '#206fbb',
 					'sanitize_callback' => 'sanitize_hex_color',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'color'     => array(
 					'default'           => '#f4f4f4',
 					'sanitize_callback' => 'sanitize_hex_color',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'font-size'     => array(
 					'default'           => '1em',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'padding' => array(
 					'default'           => '1em 1.8em',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 			),
@@ -443,25 +468,25 @@ class PWP_Simplicity_Customizer {
 				'background-color'     => array(
 					'default'           => '#444444',
 					'sanitize_callback' => 'sanitize_hex_color',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'color'     => array(
 					'default'           => '#f4f4f4',
 					'sanitize_callback' => 'sanitize_hex_color',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'font-size'     => array(
 					'default'           => '1em',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'padding' => array(
 					'default'           => '1em 1.8em',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 			),
@@ -469,25 +494,25 @@ class PWP_Simplicity_Customizer {
 				'background-color'     => array(
 					'default'           => '#ff5300',
 					'sanitize_callback' => 'sanitize_hex_color',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'color'     => array(
 					'default'           => '#f4f4f4',
 					'sanitize_callback' => 'sanitize_hex_color',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'font-size'     => array(
 					'default'           => '1em',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 				'padding' => array(
 					'default'           => '1em 1.8em',
 					'sanitize_callback' => 'esc_attr',
-					// 'transport'      => 'postMessage',
+					'transport'      => 'postMessage',
 					'type'              => 'theme_mod',
 				),
 			),
@@ -579,6 +604,28 @@ class PWP_Simplicity_Customizer {
 				),
 			),
 		) );
+
+		$buttons_partials = array(
+			'button-primary' => array(
+				'background-color' => $this->style_tag_partial,
+				'color'            => $this->style_tag_partial,
+				'font-size'        => $this->style_tag_partial,
+				'padding'          => $this->style_tag_partial,
+			),
+			'button-secondary' => array(
+				'background-color' => $this->style_tag_partial,
+				'color'            => $this->style_tag_partial,
+				'font-size'        => $this->style_tag_partial,
+				'padding'          => $this->style_tag_partial,
+			),
+			'button-warning' => array(
+				'background-color' => $this->style_tag_partial,
+				'color'            => $this->style_tag_partial,
+				'font-size'        => $this->style_tag_partial,
+				'padding'          => $this->style_tag_partial,
+			),
+		);
+		$this->_add_partials( $buttons_partials );
 	}
 
 	/**
@@ -738,6 +785,19 @@ class PWP_Simplicity_Customizer {
 				),
 			),
 		) );
+	}
+
+	/**
+	 * Helper to re-print styles when they are changed on the customizer screen. Leverages the functionality already set in the file that produces the custom css for the site.
+	 *
+	 * @return steing the css to replace with
+	 */
+	public function print_styles() {
+		ob_start();
+		include get_template_directory() . '/inc/customizer-styles.php';
+		$styles = ob_get_clean();
+		$css = preg_replace('/^(<style .*>)|(<\/style>)$/', '', trim( $styles ) );
+		echo $css;
 	}
 
 	/*

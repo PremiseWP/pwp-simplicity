@@ -2,53 +2,49 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, .8);
-	@include font-size(0.75);
-	line-height: 1;
-	padding: .6em 1em .4em;
-
-	&:hover {
-		border-color: $color__border-button-hover;
-	}
-
-	&:active,
-	&:focus {
-		border-color: $color__border-button-focus;
-	}
+	@include button-styles;
 }
 
-.pwp-simplicity-btn {
-	display: inline-block;
-	padding: 1em 1.8em;
-	background-color: $color__background-button;
-	color: #444444;
-	margin-top: 1.5em;
-	font-size: 1em;
-	text-decoration: none;
-	text-shadow: 0px 0px 1px #444;
-	// box-shadow: 0 0 0.125em #333;s
-	transition: all .4s 0s ease-in-out;
+.pwp-simplicity-btn  {
+	@include button-styles;
 
 	&:hover {
 		box-shadow: 0.125em 0.125em 0.125em #333;
 	}
 
+	&:active,
+	&:focus {
+		box-shadow: 0.125em 0.125em 0.125em #333;
+		outline: 0;
+	}
+
 	&-primary {
 		background-color: #206Fbb;
 		color: #f4f4f4;
+
+		&:hover {
+			background-color: #206Fbb;
+			color: #f4f4f4;
+		}
 	}
 
 	&-secondary {
 		background-color: #444444;
 		color: #f4f4f4;
+
+		&:hover {
+			background-color: #444444;
+			color: #f4f4f4;
+		}
 	}
 
 	&-warning {
 		background-color: #ff5300;
 		color: #FFFFFF;
+
+		&:hover {
+			background-color: #ff5300;
+			color: #FFFFFF;
+		}
 	}
 }
