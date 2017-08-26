@@ -33,7 +33,7 @@ pwpsHeader.prototype.setBumpHeight = function() {
 }
 
 pwpsHeader.prototype.adjustForAdminbar = function(e) {
-		if ( this.adminBar.length ) {
+		if ( this.adminBar.length && 'fixed' === this.header.css('position') ) {
 			this.header.css('margin-top', this.adminBar.height() );
 		}
 }

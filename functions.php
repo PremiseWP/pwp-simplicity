@@ -145,7 +145,7 @@ add_action( 'widgets_init', 'pwp_simplicity_widgets_init' );
  */
 function pwp_simplicity_scripts() {
 	// enqueue our stylesheet
-	wp_enqueue_style( 'pwp-simplicity-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'pwp-simplicity-style', get_template_directory_uri() . '/style.css' );
 
 	// register our js
 	wp_register_script( 'pwp-simplicity-js', get_template_directory_uri() . '/js/pwp-simplicity.min.js', array('jquery'), '20151215', true );
