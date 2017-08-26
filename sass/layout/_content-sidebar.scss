@@ -1,26 +1,20 @@
-.site-content {
+@media screen and (min-width: $size__tablet) {
+	.content-area.with-sidebar {
+		float: left;
+		margin: 0 (-$size__site-sidebar) 0 0;
+		width: $size__site-main;
 
-	&.with-sidebar {
-
-		@media screen and (min-width: $size__tablet) {
-			.content-area {
-				float: left;
-				margin: 0 (-$size__site-sidebar) 0 0;
-				width: $size__site-main;
-			}
-
-			.site-main {
-				margin: 0 $size__site-sidebar 0 0;
-				padding-right: 2em;
-			}
-
-			.widget-area {
-				float: right;
-				overflow: hidden;
-				width: $size__site-sidebar;
-
-				@include search-widget;
-			}
+		.site-main {
+			margin: 0 $size__site-sidebar 0 0;
+			padding-right: 2em;
 		}
+	}
+
+	.widget-area {
+		float: right;
+		overflow: hidden;
+		width: $size__site-sidebar;
+
+		@include search-widget;
 	}
 }

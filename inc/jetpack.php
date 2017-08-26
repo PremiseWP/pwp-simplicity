@@ -19,7 +19,8 @@ function pwp_simplicity_jetpack_setup() {
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
 		'render'    => 'pwp_simplicity_infinite_scroll_render',
-		'footer'    => 'page',
+		'footer_widgets' => array( 'pwp-simplicity-footer-widgets' ),
+		'footer'    => 'site-footer',
 	) );
 
 	// Add theme support for Responsive Videos.

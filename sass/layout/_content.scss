@@ -5,16 +5,57 @@
 }
 
 .site-content {
+	max-width: 1200px;
 	padding-left: 1em;
 	padding-right: 1em;
 }
 
 #content {
-	padding-top: 2em;
+	// padding-top: 2em;
 	padding-bottom: 2em;
 }
 
 .site-footer {
 	clear: both;
 	width: $size__site-main;
+}
+
+.site-content {
+
+	.entry-header {
+	}
+
+	.entry-title {
+		margin-top: 0;
+	}
+
+	.page-header {
+		padding-bottom: 1em;
+		margin-bottom: 2em;
+		border-bottom: 1px solid #f4f4f4;
+	}
+
+	.page-title {
+		margin-top: 0;
+		text-transform: capitalize;
+	}
+
+	.loop-page {
+
+		article {
+			margin-top: 2em;
+			margin-bottom: 4em;
+			padding-bottom: 2em;
+			border-bottom: 1px solid #f4f4f4;
+		}
+
+		.entry-header {
+
+		}
+
+		.entry-title {
+			margin-top: 0;
+		}
+	}
+
 }

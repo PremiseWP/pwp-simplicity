@@ -56,6 +56,8 @@
 		<?php pwp_simplicity_header_overlay(); ?>
 	</header><!-- #masthead -->
 
+	<div class="site-header-bump"></div>
+
 	<?php pwp_simplicity_header_image(); ?>
 
-	<div id="content" class="site-content<?php echo ( ( is_home() && is_front_page() ) || is_active_sidebar( 'sidebar-1' ) ) ? ' with-sidebar' : ' no-sidebar'; ?>">
+	<div id="content" class="site-content">

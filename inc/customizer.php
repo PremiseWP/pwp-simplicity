@@ -136,6 +136,12 @@ class PWP_Simplicity_Customizer {
 		// 2. register the settings
 		$header_settings = array(
 			'header' => array(
+				'position' => array(
+					'default'           => 'relative',
+					'sanitize_callback' => 'esc_attr',
+					'transport'      => 'postMessage',
+					'type'              => 'theme_mod',
+				),
 				'color' => array(
 					'default'           => '#FFFFFF',
 					'sanitize_callback' => 'sanitize_hex_color',
@@ -197,6 +203,15 @@ class PWP_Simplicity_Customizer {
 		// 3. register the controls
 		$header_controls = array(
 			'header' => array(
+				'position' => array(
+					'type'    => 'radio',
+				  'label'   => __( 'Fixed Header', 'theme_textdomain' ),
+				  'section' => 'pwp_simplicity_customizer_header',
+				  'choices' => array(
+				  	'relative' => 'Not Fixed',
+				  	'fixed'    => 'Fixed',
+				  ),
+				),
 				'color' => array(
 					'type'    => 'color',
 				  'label'   => __( 'Header Text Color', 'theme_textdomain' ),
@@ -274,6 +289,7 @@ class PWP_Simplicity_Customizer {
 				'background-color' => $overlay_partial_args,
 				'opacity'          => $overlay_partial_args,
 				// the rest of the partials.
+				'position'  => $this->style_tag_partial,
 				'color'     => $this->style_tag_partial,
 				'width'     => $this->style_tag_partial,
 				'max-width' => $this->style_tag_partial,
@@ -429,7 +445,7 @@ class PWP_Simplicity_Customizer {
 	protected function buttons_section() {
 		$this->customizer->add_section( 'pwp_simplicity_customizer_buttons', array(
 		  'title'          => __( 'Simplicity Buttons' ),
-		  'description'    => __( 'Control the styles for the primary and secondary buttons here.' ),
+		  'description'    => __( 'Control the styles for the buttons here.' ),
 		  'priority'       => 23,
 		  'capability'     => 'edit_theme_options',
 		  'panel'          => '', // Not typically needed.

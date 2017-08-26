@@ -17,7 +17,7 @@
 
 	<div class="pwp-clear-float"></div>
 
-	<footer id="colophon" class="site-footer pwp-clear-float">
+	<footer id="site-footer" class="site-footer pwp-clear-float">
 		<div class="site-content">
 			<?php
 			if ( is_active_sidebar( 'pwp-simplicity-footer-widgets' ) ) : ?>

@@ -11,6 +11,11 @@ ol {
 	list-style: decimal;
 }
 
+li
+li > a {
+	color: inherit;
+}
+
 li > ul,
 li > ol {
 	margin-bottom: 0;

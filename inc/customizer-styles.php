@@ -66,6 +66,10 @@ function pwp_print_custom_typography( $theme_mods ) {
 <?php pwp_print_custom_typography( $theme_mods ); ?>
 /* Header styles */
 .site-header{<?php pwp_print_custom_styles_for( $_header ); ?>}
+<?php if ( isset( $_header['position'] ) && 'relative' === $_header['position'] ) : ?>
+/* If the header is not fixed we need to hide the bump */
+.site-header-bump{display: none;height: 0px !important;}
+<?php endif; ?>
 .custom-logo-link{<?php pwp_print_custom_styles_for( $_logo ); ?>}
 .menu-toggle{<?php pwp_print_custom_styles_for( $_nav ); ?>}
 /* Main content styles */

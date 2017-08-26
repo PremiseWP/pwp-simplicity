@@ -1,35 +1,27 @@
+/**
+ * Our main theme object
+ *
+ * global pwpSimplicity is set using wp_localize_script.
+ *
+ * @param  {Object} $ jQuery
+ * @return {void}   does not return anything
+ */
 (function($){
 	$(document).ready(function(){
 		var _doc = $(this); // jQuery object for document
 
-		//
-		//
-		// navigation
-		var nav = $('#site-navigation'),
-		button  = $('.menu-toggle');
-		button.click(function(e){
-			e.preventDefault();
-			!nav.is('.toggled')
-				? nav.addClass('toggled')
-				: nav.removeClass('toggled');
-			return false;
-		});
+		// Build our navigation Object
+		pwpSimplicity.navigation = new pwpsNavigation();
 
-		//
-		//
-		// set the right number of widget columns for the header
-		var headerWidgetsArea = $('.pwp-simplicity-header-widgets'),
-		headerWidgets = headerWidgetsArea.children();
-		headerWidgets.addClass( 'span' + Math.floor(12 / headerWidgets.length) );
-		headerWidgetsArea.show();
+		// Build our header Object
+		pwpSimplicity.header = new pwpsHeader();
 
-		//
-		//
-		// set the right number of widget columns for the footer
-		var footerWidgetsArea = $('.pwp-simplicity-footer-widgets'),
-		footerWidgets = footerWidgetsArea.children();
-		footerWidgets.addClass( 'span' + Math.floor(12 / footerWidgets.length) );
-		footerWidgetsArea.show();
+		// Build our footer Object
+		pwpSimplicity.footer = new pwpsFooter();
+
+		// our theme object
+		console.log(pwpSimplicity);
+
 	});
 
 	$(window).load(function(){

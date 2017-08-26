@@ -144,10 +144,19 @@ add_action( 'widgets_init', 'pwp_simplicity_widgets_init' );
  * Enqueue scripts and styles.
  */
 function pwp_simplicity_scripts() {
+	// enqueue our stylesheet
 	wp_enqueue_style( 'pwp-simplicity-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'pwp-simplicity-js', get_template_directory_uri() . '/js/pwp-simplicity.min.js', array('jquery'), '20151215', true );
+	// register our js
+	wp_register_script( 'pwp-simplicity-js', get_template_directory_uri() . '/js/pwp-simplicity.min.js', array('jquery'), '20151215', true );
+	// localize some php vars into a js object
+	wp_localize_script( 'pwp-simplicity-js', 'pwpSimplicity', array(
+		'adminajax' => admin_url( 'admin-ajax.php' ),
+	) );
+	// enqueue our js
+	wp_enqueue_script( 'pwp-simplicity-js' );
 
+	// enqueue the comment script
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

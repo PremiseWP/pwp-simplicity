@@ -8,3 +8,40 @@
 .infinity-end.neverending .site-footer {
 	display: block;
 }
+
+#infinite-handle {
+	padding: 1em 0;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover {
+		button {
+			transition: width .4s ease-in-out;
+			width: 100%;
+		}
+	}
+
+	span {
+		background-color: transparent;
+		border-radius: 0;
+		font-size: inherit;
+		padding: 0;
+
+		button {
+			@include button-styles;
+			width: 15em;
+
+			&:hover {
+				@include button-styles;
+			}
+		}
+	}
+}
+
+.infinite-loader {
+	padding: 2em 0;
+
+	.spinner {
+		margin: 0 auto;
+	}
+}

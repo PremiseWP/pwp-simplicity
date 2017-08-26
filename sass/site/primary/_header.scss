@@ -1,8 +1,10 @@
 .site-header {
+	position: relative;
 	display: block;
 	margin: 0 auto;
-	position: relative;
-	z-index: 99;
+	top: 0;
+	left: 0;
+	z-index: 9999;
 	box-sizing: border-box;
 
 	&-overlay {
