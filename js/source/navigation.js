@@ -20,7 +20,6 @@ pwpsNavigation.prototype.bindEvents = function() {
 }
 
 pwpsNavigation.prototype.toggle = function(e) {
-		e.preventDefault();
 		!this.nav.is('.toggled')
 			? this.nav.addClass('toggled')
 			: this.nav.removeClass('toggled');
