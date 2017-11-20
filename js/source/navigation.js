@@ -16,12 +16,14 @@ function pwpsNavigation() {
 
 pwpsNavigation.prototype.bindEvents = function() {
 	this.button.click(this.toggle.bind(this));
-
 }
 
 pwpsNavigation.prototype.toggle = function(e) {
-		!this.nav.is('.toggled')
-			? this.nav.addClass('toggled')
-			: this.nav.removeClass('toggled');
-		return false;
+	!this.button.is('.clicked')
+		? this.button.addClass('clicked')
+		: this.button.removeClass('clicked');
+	!this.nav.is('.toggled')
+		? this.nav.addClass('toggled')
+		: this.nav.removeClass('toggled');
+	return false;
 }

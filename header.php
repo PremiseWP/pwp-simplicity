@@ -41,7 +41,12 @@
 			</div><!-- .site-branding -->
 
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-				<i class="fa fa-bars"></i>
+				<div class="pwps-default-icon">
+					<span class="bar top"></span>
+					<span class="bar middle"></span>
+					<span class="bar bottom"></span>
+				</div>
+				<!-- <i class="fa fa-bars"></i> -->
 			</button>
 
 			<nav id="site-navigation" class="main-navigation">

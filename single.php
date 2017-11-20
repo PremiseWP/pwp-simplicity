@@ -7,9 +7,12 @@
  * @package PWP_Simplicity
  */
 
+$sidebar_class = ( is_active_sidebar( 'pwp-simplicity-sidebar-1' ) )
+	? ' with-sidebar'
+	: '';
 get_header(); ?>
 
-	<div id="primary" class="content-area with-sidebar">
+	<div id="primary" class="content-area<?php echo $sidebar_class; ?>">
 		<main id="main" class="site-main">
 
 		<?php
